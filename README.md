@@ -80,14 +80,51 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot1]WhatsApp Image 2026-02-21 at 10.59.32 AM (2)
+The image is a screenshot of a web application running locally in a browser (127.0.0.1:5500/index.html). The application is titled “Smart Indian Bus Route System” and has a bus emoji icon next to the title.
+🔹 Interface Layout:
+Two dropdown menus at the top for selecting cities:
+From: Chennai
+To: Bangalore
+A third dropdown to select the bus type (Ordinary Bus).
+A “Get Bus Details” button below the dropdowns.
+🔹 Displayed Bus Information:
+After clicking the button, the app shows:
+Bus Name: TN Super Fast
+Bus Number: TN-01-1234
+Distance: 327.75 km
+Estimated Time: 4.18 hours
+Fare: ₹491.63
+🔹 Map Section:
+At the bottom, there is an embedded interactive map (likely using OpenStreetMap/Leaflet), showing a large view of India and surrounding regions. The map includes zoom controls on the left side.
+🔹 Overall Impression:
+This appears to be a student or demo web project that calculates and displays bus route details (distance, time, and fare) between selected Indian cities along with a map visualization.
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2](![WhatsApp Image 2026-02-21 at 10 59 32 AM (1)](https://github.com/user-attachments/assets/f5acad36-d52a-46df-ae67-940bf81040e9)
+)
+*This image shows the lower section of a web application displaying an interactive digital map.
+🔹 Map View
+The map is centered over India, showing surrounding regions including parts of:
+The Middle East (left side)
+South Asia
+Southeast Asia (right side)
+Major Indian cities like Mumbai, Chennai, Bengaluru, Hyderabad, Kolkata, and others are visible.
+State boundaries and terrain features (green areas for forests/elevation) are shown.
+🔹 Map Controls
+A zoom control (+ / −) is visible on the top-left corner.
+The bottom-right corner shows the Leaflet watermark, indicating the map is built using the Leaflet.js mapping library.
+🔹 System Environment
+The bottom portion of the screenshot includes the Windows taskbar:
+Weather widget showing 22°C, Mostly sunny
+System time 10:54
+Date 21-02-2026
+Language indicator ENG
+🔹 Overall Context
+This appears to be part of a bus route system project interface where the map visually represents routes across India, likely to display travel paths between selected cities.*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot3](![WhatsApp Image 2026-02-21 at 10 59 32 AM](https://github.com/user-attachments/assets/db31136c-51ef-401b-9f05-b758202b4170)
+)
+**
 
 #### Diagrams
 
