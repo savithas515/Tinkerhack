@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Indian Bus System</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <style>
+        body { font-family: Arial; text-align: center; background:#f2f2f2; }
+        select, button {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+        }
+        #map { height: 400px; width: 80%; margin: auto; }
+        h2 { color: darkblue; }
+    </style>
+</head>
+<body>
+
+<h2>🚌 Smart Indian Bus Route System</h2>
+
+<select id="from">
+    <option>Chennai</option>
+    <option>Bangalore</option>
+    <option>Hyderabad</option>
+</select>
+
+<select id="to">
+    <option>Bangalore</option>
+    <option>Hyderabad</option>
+    <option>Chennai</option>
+</select>
+
+<br>
+
+<select id="busType">
+    <option value="1.5">Ordinary Bus</option>
+    <option value="2">Express Bus</option>
+    <option value="3">AC Bus</option>
+</select>
+
+<br>
+
+<button onclick="getRoute()">Get Bus Details</button>
+
+<h3 id="result"></h3>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+// Initialize Map
+let map = L.map('map').setView([20.5937, 78.9629], 5);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+// Dummy Bus Data
+let busDatabase = [
+  {
+    from: "Chennai",
+    to: "Bangalore",
+    busName: "TN Super Fast",
+    busNumber: "TN-01-1234"
+  },
+  {
+    from: "Chennai",
+    to: "Hyderabad",
+    busName: "South Express",
+    busNumber: "TN-09-5678"
+  },
+  {
+    from: "Bangalore",
+    to: "Hyderabad",
+    busName: "Karnataka Deluxe",
+    busNumber: "KA-05-2468"
+  }
+];
+
+// Get Coordinates
+async function getCoordinates(place) {
+    let response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${place},India`
+    );
+    let data = await response.json();
+
+    if (data.length === 0) {
+        alert("Location not found");
+        return null;
+    }
+
+    return [data[0].lat, data[0].lon];
+}
+
+// Main Function
+async function getRoute() {
+
+    let from = document.getElementById("from").value;
+    let to = document.getElementById("to").value;
+    let rate = parseFloat(document.getElementById("busType").value);
+
+    if (from === to) {
+        alert("Please select different cities");
+        return;
+    }
+
+    // Find Bus
+    let bus = busDatabase.find(b =>
+        b.from === from && b.to === to
+    );
+
+    if (!bus) {
+        document.getElementById("result").innerHTML =
+            "No bus available for selected route.";
+        return;
+    }
+
+    let fromCoords = await getCoordinates(from);
+    let toCoords = await getCoordinates(to);
+
+    if (!fromCoords || !toCoords) return;
+
+    let routeResponse = await fetch(
+        `https://router.project-osrm.org/route/v1/driving/${fromCoords[1]},${fromCoords[0]};${toCoords[1]},${toCoords[0]}?overview=full&geometries=geojson`
+    );
+
+    let routeData = await routeResponse.json();
+
+    let distance = routeData.routes[0].distance / 1000;
+    let duration = routeData.routes[0].duration / 3600;
+    let fare = distance * rate;
+
+    document.getElementById("result").innerHTML =
+        "Bus Name: " + bus.busName + "<br>" +
+        "Bus Number: " + bus.busNumber + "<br><br>" +
+        "Distance: " + distance.toFixed(2) + " km<br>" +
+        "Estimated Time: " + duration.toFixed(2) + " hours<br>" +
+        "Fare: ₹ " + fare.toFixed(2);
+
+    L.geoJSON(routeData.routes[0].geometry).addTo(map);
+}
+
+</script>
+
+</body>
+</html>

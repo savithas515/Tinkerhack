@@ -1,0 +1,12 @@
+[
+  {
+    "from": "Chennai",
+    "to": "Bangalore",
+    "busName": "TNSTC Ultra Deluxe",
+    "busNumber": "TN-01-N-1456",
+    "busType": "AC Seater",
+    "departure": "07:00 AM",
+    "arrival": "01:30 PM",
+    "fare": 680
+  }
+]
