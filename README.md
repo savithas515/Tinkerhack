@@ -2,7 +2,7 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] Tinkerhack
+# [Project Name] Smart transportation helper
 
 ## Basic Details
 
