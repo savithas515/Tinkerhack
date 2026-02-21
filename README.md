@@ -2,29 +2,26 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# [Project Name] Tinkerhack
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [Tinkerhack]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [Savitha.s] - [College of engineering,Munnar]
 
 ### Hosted Project Link
-[mention your project hosted link here]
+(https://savithas515.github.io/Tinkerhack/)
 
 ### Project Description
-[2-3 lines about what your project does]
+My project describes about smart transportation helper which helps us to find transportation facility and make our journey good and safe.This project includes the timing,distance of transportation bus.
 
 ### The Problem statement
-[What problem are you solving?]
+Promblem is smart transportation helper.
 
 ### The Solution
-[How are you solving it?]
-
----
+[A website is made to find buses its timing to reach our destination ,then its also shows the distance to get a clear timing for a better and good journey.]
 
 ## Technical Details
 
